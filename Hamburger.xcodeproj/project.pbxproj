@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B4CB341E50647C8A3C9B8CA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BDD4AC603F48D88D261083 /* libPods.a */; };
 		904A154418F0F55E00DCD995 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 904A154318F0F55E00DCD995 /* Foundation.framework */; };
 		904A154618F0F55E00DCD995 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 904A154518F0F55E00DCD995 /* CoreGraphics.framework */; };
 		904A154818F0F55E00DCD995 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 904A154718F0F55E00DCD995 /* UIKit.framework */; };
@@ -19,6 +20,21 @@
 		904A155F18F0F55E00DCD995 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 904A154718F0F55E00DCD995 /* UIKit.framework */; };
 		904A156718F0F55E00DCD995 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 904A156518F0F55E00DCD995 /* InfoPlist.strings */; };
 		904A156918F0F55E00DCD995 /* HamburgerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 904A156818F0F55E00DCD995 /* HamburgerTests.m */; };
+		904A157518F0F8C300DCD995 /* SSTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904A157318F0F8C300DCD995 /* SSTimelineViewController.m */; };
+		904A157618F0F8C300DCD995 /* SSTimelineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904A157418F0F8C300DCD995 /* SSTimelineViewController.xib */; };
+		904A157A18F0FDBC00DCD995 /* TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 904A157918F0FDBC00DCD995 /* TwitterClient.m */; };
+		904A157E18F0FE6D00DCD995 /* SSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904A157C18F0FE6D00DCD995 /* SSLoginViewController.m */; };
+		904A157F18F0FE6D00DCD995 /* SSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904A157D18F0FE6D00DCD995 /* SSLoginViewController.xib */; };
+		904A158218F1016000DCD995 /* SSTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 904A158118F1016000DCD995 /* SSTweet.m */; };
+		904A158618F1040300DCD995 /* SSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 904A158518F1040300DCD995 /* SSUser.m */; };
+		904A158A18F1078000DCD995 /* SSTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 904A158818F1078000DCD995 /* SSTweetCell.m */; };
+		904A158B18F1078000DCD995 /* SSTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904A158918F1078000DCD995 /* SSTweetCell.xib */; };
+		904A159518F113CB00DCD995 /* SSProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904A159318F113CB00DCD995 /* SSProfileViewController.m */; };
+		904A159618F113CB00DCD995 /* SSProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904A159418F113CB00DCD995 /* SSProfileViewController.xib */; };
+		904A159A18F1237300DCD995 /* SSMentionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904A159818F1237300DCD995 /* SSMentionsViewController.m */; };
+		904A159B18F1237300DCD995 /* SSMentionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904A159918F1237300DCD995 /* SSMentionsViewController.xib */; };
+		904A15A418F2261800DCD995 /* SSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904A15A218F2261800DCD995 /* SSMainViewController.m */; };
+		904A15A518F2261800DCD995 /* SSMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904A15A318F2261800DCD995 /* SSMainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10BDD4AC603F48D88D261083 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		18DF02358A0045F38F3609D7 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		904A154018F0F55E00DCD995 /* Hamburger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hamburger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		904A154318F0F55E00DCD995 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		904A154518F0F55E00DCD995 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,6 +66,30 @@
 		904A156418F0F55E00DCD995 /* HamburgerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HamburgerTests-Info.plist"; sourceTree = "<group>"; };
 		904A156618F0F55E00DCD995 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		904A156818F0F55E00DCD995 /* HamburgerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HamburgerTests.m; sourceTree = "<group>"; };
+		904A157218F0F8C300DCD995 /* SSTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSTimelineViewController.h; path = "View Controllers/SSTimelineViewController.h"; sourceTree = "<group>"; };
+		904A157318F0F8C300DCD995 /* SSTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSTimelineViewController.m; path = "View Controllers/SSTimelineViewController.m"; sourceTree = "<group>"; };
+		904A157418F0F8C300DCD995 /* SSTimelineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SSTimelineViewController.xib; path = "View Controllers/SSTimelineViewController.xib"; sourceTree = "<group>"; };
+		904A157818F0FDBC00DCD995 /* TwitterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterClient.h; sourceTree = "<group>"; };
+		904A157918F0FDBC00DCD995 /* TwitterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterClient.m; sourceTree = "<group>"; };
+		904A157B18F0FE6D00DCD995 /* SSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSLoginViewController.h; path = "View Controllers/SSLoginViewController.h"; sourceTree = "<group>"; };
+		904A157C18F0FE6D00DCD995 /* SSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSLoginViewController.m; path = "View Controllers/SSLoginViewController.m"; sourceTree = "<group>"; };
+		904A157D18F0FE6D00DCD995 /* SSLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SSLoginViewController.xib; path = "View Controllers/SSLoginViewController.xib"; sourceTree = "<group>"; };
+		904A158018F1016000DCD995 /* SSTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSTweet.h; path = Models/SSTweet.h; sourceTree = "<group>"; };
+		904A158118F1016000DCD995 /* SSTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSTweet.m; path = Models/SSTweet.m; sourceTree = "<group>"; };
+		904A158418F1040300DCD995 /* SSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSUser.h; path = Models/SSUser.h; sourceTree = "<group>"; };
+		904A158518F1040300DCD995 /* SSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSUser.m; path = Models/SSUser.m; sourceTree = "<group>"; };
+		904A158718F1078000DCD995 /* SSTweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSTweetCell.h; path = Views/SSTweetCell.h; sourceTree = "<group>"; };
+		904A158818F1078000DCD995 /* SSTweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSTweetCell.m; path = Views/SSTweetCell.m; sourceTree = "<group>"; };
+		904A158918F1078000DCD995 /* SSTweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SSTweetCell.xib; path = Views/SSTweetCell.xib; sourceTree = "<group>"; };
+		904A159218F113CB00DCD995 /* SSProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSProfileViewController.h; path = "View Controllers/SSProfileViewController.h"; sourceTree = "<group>"; };
+		904A159318F113CB00DCD995 /* SSProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSProfileViewController.m; path = "View Controllers/SSProfileViewController.m"; sourceTree = "<group>"; };
+		904A159418F113CB00DCD995 /* SSProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SSProfileViewController.xib; path = "View Controllers/SSProfileViewController.xib"; sourceTree = "<group>"; };
+		904A159718F1237300DCD995 /* SSMentionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSMentionsViewController.h; path = "View Controllers/SSMentionsViewController.h"; sourceTree = "<group>"; };
+		904A159818F1237300DCD995 /* SSMentionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSMentionsViewController.m; path = "View Controllers/SSMentionsViewController.m"; sourceTree = "<group>"; };
+		904A159918F1237300DCD995 /* SSMentionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SSMentionsViewController.xib; path = "View Controllers/SSMentionsViewController.xib"; sourceTree = "<group>"; };
+		904A15A118F2261800DCD995 /* SSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSMainViewController.h; path = "View Controllers/SSMainViewController.h"; sourceTree = "<group>"; };
+		904A15A218F2261800DCD995 /* SSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSMainViewController.m; path = "View Controllers/SSMainViewController.m"; sourceTree = "<group>"; };
+		904A15A318F2261800DCD995 /* SSMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SSMainViewController.xib; path = "View Controllers/SSMainViewController.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +100,7 @@
 				904A154618F0F55E00DCD995 /* CoreGraphics.framework in Frameworks */,
 				904A154818F0F55E00DCD995 /* UIKit.framework in Frameworks */,
 				904A154418F0F55E00DCD995 /* Foundation.framework in Frameworks */,
+				1B4CB341E50647C8A3C9B8CA /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +124,7 @@
 				904A156218F0F55E00DCD995 /* HamburgerTests */,
 				904A154218F0F55E00DCD995 /* Frameworks */,
 				904A154118F0F55E00DCD995 /* Products */,
+				18DF02358A0045F38F3609D7 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +144,7 @@
 				904A154518F0F55E00DCD995 /* CoreGraphics.framework */,
 				904A154718F0F55E00DCD995 /* UIKit.framework */,
 				904A155C18F0F55E00DCD995 /* XCTest.framework */,
+				10BDD4AC603F48D88D261083 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,8 +154,13 @@
 			children = (
 				904A155218F0F55E00DCD995 /* AppDelegate.h */,
 				904A155318F0F55E00DCD995 /* AppDelegate.m */,
+				904A157818F0FDBC00DCD995 /* TwitterClient.h */,
+				904A157918F0FDBC00DCD995 /* TwitterClient.m */,
+				904A158318F1016600DCD995 /* Models */,
+				904A157718F0F8D000DCD995 /* View Controllers */,
 				904A155518F0F55E00DCD995 /* Images.xcassets */,
 				904A154A18F0F55E00DCD995 /* Supporting Files */,
+				904A158C18F1078500DCD995 /* Views */,
 			);
 			path = Hamburger;
 			sourceTree = "<group>";
@@ -144,6 +194,49 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		904A157718F0F8D000DCD995 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				904A157218F0F8C300DCD995 /* SSTimelineViewController.h */,
+				904A157318F0F8C300DCD995 /* SSTimelineViewController.m */,
+				904A157418F0F8C300DCD995 /* SSTimelineViewController.xib */,
+				904A157B18F0FE6D00DCD995 /* SSLoginViewController.h */,
+				904A157C18F0FE6D00DCD995 /* SSLoginViewController.m */,
+				904A157D18F0FE6D00DCD995 /* SSLoginViewController.xib */,
+				904A159218F113CB00DCD995 /* SSProfileViewController.h */,
+				904A159318F113CB00DCD995 /* SSProfileViewController.m */,
+				904A159418F113CB00DCD995 /* SSProfileViewController.xib */,
+				904A159718F1237300DCD995 /* SSMentionsViewController.h */,
+				904A159818F1237300DCD995 /* SSMentionsViewController.m */,
+				904A159918F1237300DCD995 /* SSMentionsViewController.xib */,
+				904A15A118F2261800DCD995 /* SSMainViewController.h */,
+				904A15A218F2261800DCD995 /* SSMainViewController.m */,
+				904A15A318F2261800DCD995 /* SSMainViewController.xib */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		904A158318F1016600DCD995 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				904A158018F1016000DCD995 /* SSTweet.h */,
+				904A158118F1016000DCD995 /* SSTweet.m */,
+				904A158418F1040300DCD995 /* SSUser.h */,
+				904A158518F1040300DCD995 /* SSUser.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		904A158C18F1078500DCD995 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				904A158718F1078000DCD995 /* SSTweetCell.h */,
+				904A158818F1078000DCD995 /* SSTweetCell.m */,
+				904A158918F1078000DCD995 /* SSTweetCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,9 +244,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 904A156C18F0F55E00DCD995 /* Build configuration list for PBXNativeTarget "Hamburger" */;
 			buildPhases = (
+				541052B7155F4BFCB9B6C9CB /* Check Pods Manifest.lock */,
 				904A153C18F0F55E00DCD995 /* Sources */,
 				904A153D18F0F55E00DCD995 /* Frameworks */,
 				904A153E18F0F55E00DCD995 /* Resources */,
+				9D0B68A7B2E84EC0863984AE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,7 +314,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				904A159618F113CB00DCD995 /* SSProfileViewController.xib in Resources */,
+				904A157F18F0FE6D00DCD995 /* SSLoginViewController.xib in Resources */,
 				904A154E18F0F55E00DCD995 /* InfoPlist.strings in Resources */,
+				904A157618F0F8C300DCD995 /* SSTimelineViewController.xib in Resources */,
+				904A15A518F2261800DCD995 /* SSMainViewController.xib in Resources */,
+				904A159B18F1237300DCD995 /* SSMentionsViewController.xib in Resources */,
+				904A158B18F1078000DCD995 /* SSTweetCell.xib in Resources */,
 				904A155618F0F55E00DCD995 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,13 +335,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		541052B7155F4BFCB9B6C9CB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9D0B68A7B2E84EC0863984AE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		904A153C18F0F55E00DCD995 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				904A157A18F0FDBC00DCD995 /* TwitterClient.m in Sources */,
+				904A158618F1040300DCD995 /* SSUser.m in Sources */,
+				904A159518F113CB00DCD995 /* SSProfileViewController.m in Sources */,
+				904A15A418F2261800DCD995 /* SSMainViewController.m in Sources */,
 				904A155418F0F55E00DCD995 /* AppDelegate.m in Sources */,
+				904A157518F0F8C300DCD995 /* SSTimelineViewController.m in Sources */,
+				904A158218F1016000DCD995 /* SSTweet.m in Sources */,
+				904A157E18F0FE6D00DCD995 /* SSLoginViewController.m in Sources */,
 				904A155018F0F55E00DCD995 /* main.m in Sources */,
+				904A158A18F1078000DCD995 /* SSTweetCell.m in Sources */,
+				904A159A18F1237300DCD995 /* SSMentionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +497,7 @@
 		};
 		904A156D18F0F55E00DCD995 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18DF02358A0045F38F3609D7 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -367,6 +511,7 @@
 		};
 		904A156E18F0F55E00DCD995 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18DF02358A0045F38F3609D7 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -437,6 +582,7 @@
 				904A156E18F0F55E00DCD995 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		904A156F18F0F55E00DCD995 /* Build configuration list for PBXNativeTarget "HamburgerTests" */ = {
 			isa = XCConfigurationList;
@@ -445,6 +591,7 @@
 				904A157118F0F55E00DCD995 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
