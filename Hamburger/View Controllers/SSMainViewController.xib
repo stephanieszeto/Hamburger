@@ -20,13 +20,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EL6-TO-aNS">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EL6-TO-aNS">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gg1-Nn-cQg">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gg1-Nn-cQg">
                     <rect key="frame" x="0.0" y="0.0" width="177" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="177" id="h6o-lQ-WHq"/>
+                    </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zm6-w5-TwS">
                     <rect key="frame" x="31" y="154" width="103" height="30"/>
@@ -74,6 +77,15 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="EL6-TO-aNS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QK5-YN-cMy"/>
+                <constraint firstAttribute="bottom" secondItem="EL6-TO-aNS" secondAttribute="bottom" id="bTv-28-c7j"/>
+                <constraint firstAttribute="bottom" secondItem="Gg1-Nn-cQg" secondAttribute="bottom" id="dQ1-q2-h8r"/>
+                <constraint firstItem="Gg1-Nn-cQg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="e5V-hI-eBG"/>
+                <constraint firstItem="EL6-TO-aNS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jrc-xK-KwX"/>
+                <constraint firstItem="Gg1-Nn-cQg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lfA-35-XSU"/>
+                <constraint firstAttribute="trailing" secondItem="EL6-TO-aNS" secondAttribute="trailing" id="xdf-c5-206"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

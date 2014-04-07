@@ -33,7 +33,6 @@
 - (SSProfileViewController *)initWithUser:(SSUser *)user {
     self = [super init];
     if (self) {
-        self.title = @"Me";
         self.client = [TwitterClient instance];
         self.user = user;
     }
@@ -44,7 +43,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Me";
         self.client = [TwitterClient instance];
     }
     return self;

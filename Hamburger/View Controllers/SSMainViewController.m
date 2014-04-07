@@ -99,12 +99,14 @@
 }
 
 - (void)displayTimeline:(NSMutableArray *)tweets {
+    self.title = @"Home";
     SSTimelineViewController *tvc = self.viewControllers[0];
     tvc.tweets = tweets;
     [self onTimeline:self];
 }
 
 - (void)displayProfile:(SSUser *)user {
+    self.title = @"Profile";
     SSProfileViewController *pvc = self.viewControllers[1];
     pvc.user = user;
     [pvc setValues];
@@ -152,6 +154,7 @@
 }
 
 - (IBAction)onProfile:(id)sender {
+    self.title = @"Me";
     SSProfileViewController *profileVC = self.viewControllers[1];
     UIView *profile = profileVC.view;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
