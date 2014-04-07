@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) SSTweet *tweet;
 
+@property (weak, nonatomic) IBOutlet UIImageView *avatar;
+
 - (void)setValues:(SSTweet *)tweet;
 
 @end

@@ -10,7 +10,6 @@
 #import "SSTimelineViewController.h"
 #import "SSLoginViewController.h"
 #import "SSProfileViewController.h"
-#import "SSMentionsViewController.h"
 #import "TwitterClient.h"
 #import "SSUser.h"
 
@@ -42,7 +41,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.client = [TwitterClient instance];
-        self.viewControllers = @[[[SSTimelineViewController alloc] init], [[SSProfileViewController alloc] init], [[SSMentionsViewController alloc] init], [[SSLoginViewController alloc] init]];
+        self.viewControllers = @[[[SSTimelineViewController alloc] init], [[SSProfileViewController alloc] init]];
     }
     return self;
 }
@@ -60,13 +59,9 @@
     // add all subviews to container view
     UIView *timelineView = ((UIViewController *)self.viewControllers[0]).view;
     UIView *profileView = ((UIViewController *)self.viewControllers[1]).view;
-    UIView *mentionsView = ((UIViewController *)self.viewControllers[2]).view;
-    UIView *loginView = ((UIViewController *)self.viewControllers[3]).view;
     
     [self.containerView addSubview:timelineView];
     [self.containerView addSubview:profileView];
-    [self.containerView addSubview:mentionsView];
-    [self.containerView addSubview:loginView];
     
     // add menu button to navigation bar
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -88,10 +83,8 @@
     
     // set up container view
     if ([self.client isAuthorized]) {
-        self.title = @"Timeline";
+        self.title = @"Home";
         [self.containerView bringSubviewToFront:timelineView];
-    } else {
-        [self.containerView bringSubviewToFront:loginView];
     }
     
     // define pan gesture recognizer
@@ -106,10 +99,16 @@
 }
 
 - (void)displayTimeline:(NSMutableArray *)tweets {
-    [self onMenuButton:self];
     SSTimelineViewController *tvc = self.viewControllers[0];
     tvc.tweets = tweets;
     [self onTimeline:self];
+}
+
+- (void)displayProfile:(SSUser *)user {
+    SSProfileViewController *pvc = self.viewControllers[1];
+    pvc.user = user;
+    [pvc setValues];
+    [self.containerView bringSubviewToFront:pvc.view];
 }
 
 # pragma mark - Private methods
@@ -165,15 +164,21 @@
 }
 
 - (IBAction)onTimeline:(id)sender {
-    self.title = @"Timeline";
-    UIView *timeline = ((UIViewController *) self.viewControllers[0]).view;
+    self.title = @"Home";
+    SSTimelineViewController *tvc = self.viewControllers[0];
+    tvc.isMentions = NO;
+    [tvc loadTimeline];
+    UIView *timeline = tvc.view;
     [self.containerView bringSubviewToFront:timeline];
     [self onMenuButton:self];
 }
 
 - (IBAction)onMentions:(id)sender {
     self.title = @"Mentions";
-    UIView *mentions = ((UIViewController *) self.viewControllers[2]).view;
+    SSTimelineViewController *tvc = self.viewControllers[0];
+    tvc.isMentions = YES;
+    [tvc loadTimeline];
+    UIView *mentions = tvc.view;
     [self.containerView bringSubviewToFront:mentions];
     [self onMenuButton:self];
 }
@@ -185,8 +190,8 @@
     SSTimelineViewController *tvc = self.viewControllers[0];
     [tvc.tweets removeAllObjects];
     
-    UIView *login = ((UIViewController *) self.viewControllers[3]).view;
-    [self.containerView bringSubviewToFront:login];
+    SSLoginViewController *lvc = [[SSLoginViewController alloc] init];
+    [self.navigationController pushViewController:lvc animated:YES];
     [self onMenuButton:self];
 }
 @end

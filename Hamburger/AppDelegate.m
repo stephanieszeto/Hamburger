@@ -9,11 +9,13 @@
 #import "AppDelegate.h"
 #import "TwitterClient.h"
 #import "SSMainViewController.h"
+#import "SSLoginViewController.h"
 #import "SSTweet.h"
 
 @interface AppDelegate ()
 
 @property (nonatomic, strong) UINavigationController *nvc;
+@property (nonatomic, strong) SSLoginViewController *lvc;
 @property (nonatomic, strong) SSMainViewController *mvc;
 @property (nonatomic, strong) TwitterClient *client;
 
@@ -45,9 +47,15 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    self.lvc = [[SSLoginViewController alloc] init];
     self.mvc = [[SSMainViewController alloc] init];
     self.nvc = [[UINavigationController alloc] initWithRootViewController:self.mvc];
     self.window.rootViewController = self.nvc;
+    
+    self.client = [TwitterClient instance];
+    if (![self.client isAuthorized]) {
+        [self.nvc pushViewController:self.lvc animated:NO];
+    }
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -68,7 +76,7 @@
                     
                     // get current user
                     [self.client userWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-                        NSLog(@"user response: %@", responseObject);
+                        //NSLog(@"user response: %@", responseObject);
                         NSDictionary *json = responseObject;
                         NSDictionary *userDictionary = @{@"name" : json[@"name"],
                                                          @"screen_name" : json[@"screen_name"],
@@ -98,12 +106,9 @@
                         }
                         NSLog(@"populated tweets");
                         
+                        [self.nvc setNavigationBarHidden:NO animated:NO];
                         [self.mvc displayTimeline:tweets];
-                        
-                        /*// push timeline view controller
-                        SSTimelineViewController *tvc = [[SSTimelineViewController alloc] initWithArray:tweets];
-                        [self.nvc pushViewController:tvc animated:NO];
-                         */
+                        [self.nvc popToRootViewControllerAnimated:YES];
                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                         NSLog(@"Error: no timeline response");
                     }];

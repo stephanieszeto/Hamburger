@@ -31,8 +31,6 @@
 		904A158B18F1078000DCD995 /* SSTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904A158918F1078000DCD995 /* SSTweetCell.xib */; };
 		904A159518F113CB00DCD995 /* SSProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904A159318F113CB00DCD995 /* SSProfileViewController.m */; };
 		904A159618F113CB00DCD995 /* SSProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904A159418F113CB00DCD995 /* SSProfileViewController.xib */; };
-		904A159A18F1237300DCD995 /* SSMentionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904A159818F1237300DCD995 /* SSMentionsViewController.m */; };
-		904A159B18F1237300DCD995 /* SSMentionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904A159918F1237300DCD995 /* SSMentionsViewController.xib */; };
 		904A15A418F2261800DCD995 /* SSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904A15A218F2261800DCD995 /* SSMainViewController.m */; };
 		904A15A518F2261800DCD995 /* SSMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904A15A318F2261800DCD995 /* SSMainViewController.xib */; };
 /* End PBXBuildFile section */
@@ -84,9 +82,6 @@
 		904A159218F113CB00DCD995 /* SSProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSProfileViewController.h; path = "View Controllers/SSProfileViewController.h"; sourceTree = "<group>"; };
 		904A159318F113CB00DCD995 /* SSProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSProfileViewController.m; path = "View Controllers/SSProfileViewController.m"; sourceTree = "<group>"; };
 		904A159418F113CB00DCD995 /* SSProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SSProfileViewController.xib; path = "View Controllers/SSProfileViewController.xib"; sourceTree = "<group>"; };
-		904A159718F1237300DCD995 /* SSMentionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSMentionsViewController.h; path = "View Controllers/SSMentionsViewController.h"; sourceTree = "<group>"; };
-		904A159818F1237300DCD995 /* SSMentionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSMentionsViewController.m; path = "View Controllers/SSMentionsViewController.m"; sourceTree = "<group>"; };
-		904A159918F1237300DCD995 /* SSMentionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SSMentionsViewController.xib; path = "View Controllers/SSMentionsViewController.xib"; sourceTree = "<group>"; };
 		904A15A118F2261800DCD995 /* SSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSMainViewController.h; path = "View Controllers/SSMainViewController.h"; sourceTree = "<group>"; };
 		904A15A218F2261800DCD995 /* SSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSMainViewController.m; path = "View Controllers/SSMainViewController.m"; sourceTree = "<group>"; };
 		904A15A318F2261800DCD995 /* SSMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SSMainViewController.xib; path = "View Controllers/SSMainViewController.xib"; sourceTree = "<group>"; };
@@ -206,9 +201,6 @@
 				904A159218F113CB00DCD995 /* SSProfileViewController.h */,
 				904A159318F113CB00DCD995 /* SSProfileViewController.m */,
 				904A159418F113CB00DCD995 /* SSProfileViewController.xib */,
-				904A159718F1237300DCD995 /* SSMentionsViewController.h */,
-				904A159818F1237300DCD995 /* SSMentionsViewController.m */,
-				904A159918F1237300DCD995 /* SSMentionsViewController.xib */,
 				904A15A118F2261800DCD995 /* SSMainViewController.h */,
 				904A15A218F2261800DCD995 /* SSMainViewController.m */,
 				904A15A318F2261800DCD995 /* SSMainViewController.xib */,
@@ -319,7 +311,6 @@
 				904A154E18F0F55E00DCD995 /* InfoPlist.strings in Resources */,
 				904A157618F0F8C300DCD995 /* SSTimelineViewController.xib in Resources */,
 				904A15A518F2261800DCD995 /* SSMainViewController.xib in Resources */,
-				904A159B18F1237300DCD995 /* SSMentionsViewController.xib in Resources */,
 				904A158B18F1078000DCD995 /* SSTweetCell.xib in Resources */,
 				904A155618F0F55E00DCD995 /* Images.xcassets in Resources */,
 			);
@@ -383,7 +374,6 @@
 				904A157E18F0FE6D00DCD995 /* SSLoginViewController.m in Sources */,
 				904A155018F0F55E00DCD995 /* main.m in Sources */,
 				904A158A18F1078000DCD995 /* SSTweetCell.m in Sources */,
-				904A159A18F1237300DCD995 /* SSMentionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

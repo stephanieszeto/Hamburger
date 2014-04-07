@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SSUser.h"
 
 @interface SSMainViewController : UIViewController
 
 - (void)displayTimeline:(NSMutableArray *)tweets;
+- (void)displayProfile:(SSUser *)user;
 
 @end

@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SSTimelineViewController : UIViewController < UITableViewDataSource, UITableViewDelegate >
+@interface SSTimelineViewController : UIViewController < UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate >
 
 @property (nonatomic, strong) NSMutableArray *tweets;
+@property (nonatomic) BOOL isMentions;
 
 - (SSTimelineViewController *)initWithArray:(NSMutableArray *)array;
 - (void)setTweets:(NSMutableArray *)tweets;
+- (void)loadTimeline;
 
 @end

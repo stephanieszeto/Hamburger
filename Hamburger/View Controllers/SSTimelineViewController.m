@@ -7,6 +7,7 @@
 //
 
 #import "SSTimelineViewController.h"
+#import "SSMainViewController.h"
 #import "SSLoginViewController.h"
 #import "TwitterClient.h"
 #import "SSTweet.h"
@@ -20,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *menuView;
 
+- (void)onAvatarTap:(UITapGestureRecognizer *)tapGestureRecognizer;
+
 @end
 
 @implementation SSTimelineViewController
@@ -28,8 +31,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Home";
         self.client = [TwitterClient instance];
+        self.isMentions = NO;
         
         // get tweets
         [self loadTimeline];
@@ -40,8 +43,8 @@
 - (SSTimelineViewController *)initWithArray:(NSMutableArray *)array {
     self = [super init];
     if (self) {
-        self.title = @"Home";
         self.client = [TwitterClient instance];
+        self.isMentions = NO;
         self.tweets = array;
     }
     return self;
@@ -55,13 +58,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    // set navigation bar colors
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.42 green:0.69 blue:0.95 alpha:1.0];
-    self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
     // add pull to refresh
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
@@ -70,6 +66,8 @@
     // register tweet cell
     UINib *tweetNib = [UINib nibWithNibName:@"SSTweetCell" bundle:nil];
     [self.tableView registerNib:tweetNib forCellReuseIdentifier:@"SSTweetCell"];
+    
+    [self loadTimeline];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,28 +76,56 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)loadTimeline {
+    if (self.isMentions) {
+        [self.client mentionsWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            // populate models
+            [self.tweets removeAllObjects];
+            NSArray *tweetsInJson = responseObject;
+            NSMutableArray *tweets = [NSMutableArray arrayWithCapacity:tweetsInJson.count];
+            for (NSDictionary *dictionary in tweetsInJson) {
+                SSTweet *tweet = [[SSTweet alloc] initWithDictionary:dictionary];
+                [tweets addObject:tweet];
+            }
+            self.tweets = tweets;
+            [self.tableView reloadData];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: no mentions response");
+            NSLog(@"%@", error.description);
+        }];
+    } else {
+        [self.client timelineWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            // populate models
+            [self.tweets removeAllObjects];
+            NSArray *tweetsInJson = responseObject;
+            NSMutableArray *tweets = [NSMutableArray arrayWithCapacity:tweetsInJson.count];
+            for (NSDictionary *dictionary in tweetsInJson) {
+                SSTweet *tweet = [[SSTweet alloc] initWithDictionary:dictionary];
+                [tweets addObject:tweet];
+            }
+            self.tweets = tweets;
+            [self.tableView reloadData];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: no timeline response");
+            NSLog(@"%@", error.description);
+        }];
+    }
+}
+
 # pragma mark - Private methods
+
 - (void)refresh:(UIRefreshControl *)refreshControl {
     [self loadTimeline];
     [refreshControl endRefreshing];
 }
 
-- (void)loadTimeline {
-    [self.client timelineWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        // populate models
-        [self.tweets removeAllObjects];
-        NSArray *tweetsInJson = responseObject;
-        NSMutableArray *tweets = [NSMutableArray arrayWithCapacity:tweetsInJson.count];
-        for (NSDictionary *dictionary in tweetsInJson) {
-            SSTweet *tweet = [[SSTweet alloc] initWithDictionary:dictionary];
-            [tweets addObject:tweet];
-        }
-        self.tweets = tweets;
-        [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: no timeline response");
-        NSLog(@"%@", error.description);
-    }];
+- (void)onAvatarTap:(UITapGestureRecognizer *)tapGestureRecognizer {
+    NSLog(@"tapped on avatar");
+    SSTweet *tweet = self.tweets[tapGestureRecognizer.view.tag];
+    SSUser *user = tweet.user;
+    UINavigationController *nvc = (UINavigationController *) [UIApplication sharedApplication].keyWindow.rootViewController;
+    SSMainViewController *mvc = nvc.viewControllers[0];
+    [mvc displayProfile:user];
 }
 
 # pragma mark - Table view methods
@@ -116,15 +142,19 @@
     SSTweet *tweet = self.tweets[indexPath.row];
     SSTweetCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"SSTweetCell" forIndexPath:indexPath];
     [cell setValues:tweet];
+    
+    // add tap gesture recognizer for avatar
+    cell.avatar.tag = indexPath.row;
+    cell.avatar.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onAvatarTap:)];
+    tapGestureRecognizer.delegate = self;
+    [cell.avatar addGestureRecognizer:tapGestureRecognizer];
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    SSTweet *tweet = self.tweets[indexPath.row];
-    SSUser *user = tweet.user;
-    SSProfileViewController *pvc = [[SSProfileViewController alloc] initWithUser:user];
-    [self.navigationController pushViewController:pvc animated:YES];
 }
 
 @end
