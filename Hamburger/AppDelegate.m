@@ -51,9 +51,11 @@
     self.mvc = [[SSMainViewController alloc] init];
     self.nvc = [[UINavigationController alloc] initWithRootViewController:self.mvc];
     self.window.rootViewController = self.nvc;
+    NSLog(@"assigned root VC to navigation controller");
     
     self.client = [TwitterClient instance];
     if (![self.client isAuthorized]) {
+        NSLog(@"please log in");
         [self.nvc pushViewController:self.lvc animated:NO];
     }
     

@@ -12,7 +12,7 @@
                 <outlet property="numFollowers" destination="pau-SV-IcT" id="Ul7-ER-Joe"/>
                 <outlet property="numFollowing" destination="o20-yF-i9z" id="xKK-rp-7o6"/>
                 <outlet property="numTweets" destination="jhF-bU-ODj" id="0aj-2V-lKb"/>
-                <outlet property="screen" destination="gWd-pE-0Gl" id="GCN-Fi-Jel"/>
+                <outlet property="tweetsView" destination="AjZ-ck-YgS" id="xWc-17-SL4"/>
                 <outlet property="username" destination="zSV-UP-WsW" id="iSg-Ge-5T7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,11 +22,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWd-pE-0Gl">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TWEETS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLj-6o-RGm">
                     <rect key="frame" x="13" y="216" width="68" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,6 +81,10 @@
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x7B-mg-U18">
                     <rect key="frame" x="116" y="24" width="89" height="82"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AjZ-ck-YgS">
+                    <rect key="frame" x="0.0" y="239" width="320" height="329"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>

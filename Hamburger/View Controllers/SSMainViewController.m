@@ -157,11 +157,13 @@
     self.title = @"Me";
     SSProfileViewController *profileVC = self.viewControllers[1];
     UIView *profile = profileVC.view;
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *dictionary = [defaults objectForKey:@"currentUser"];
     SSUser *user = [[SSUser alloc] initWithDictionary:dictionary];
     profileVC.user = user;
     [profileVC setValues];
+    
     [self.containerView bringSubviewToFront:profile];
     [self onMenuButton:self];
 }
@@ -169,7 +171,7 @@
 - (IBAction)onTimeline:(id)sender {
     self.title = @"Home";
     SSTimelineViewController *tvc = self.viewControllers[0];
-    tvc.isMentions = NO;
+    tvc.type = @[@"YES", @"NO", @"NO"];
     [tvc loadTimeline];
     UIView *timeline = tvc.view;
     [self.containerView bringSubviewToFront:timeline];
@@ -179,7 +181,7 @@
 - (IBAction)onMentions:(id)sender {
     self.title = @"Mentions";
     SSTimelineViewController *tvc = self.viewControllers[0];
-    tvc.isMentions = YES;
+    tvc.type = @[@"NO", @"YES", @"NO"];
     [tvc loadTimeline];
     UIView *mentions = tvc.view;
     [self.containerView bringSubviewToFront:mentions];
@@ -190,6 +192,7 @@
     self.title = @"";
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"currentUser"];
+    NSLog(@"removing current user: %@", [defaults objectForKey:@"currentUser"]);
     SSTimelineViewController *tvc = self.viewControllers[0];
     [tvc.tweets removeAllObjects];
     

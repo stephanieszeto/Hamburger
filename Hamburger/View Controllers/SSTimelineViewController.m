@@ -19,7 +19,6 @@
 
 @property (nonatomic, strong) TwitterClient *client;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIImageView *menuView;
 
 - (void)onAvatarTap:(UITapGestureRecognizer *)tapGestureRecognizer;
 
@@ -32,7 +31,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.client = [TwitterClient instance];
-        self.isMentions = NO;
+        // timeline, mentions, tweets
+        self.type = @[@"YES", @"NO", @"NO"];
         
         // get tweets
         [self loadTimeline];
@@ -44,7 +44,7 @@
     self = [super init];
     if (self) {
         self.client = [TwitterClient instance];
-        self.isMentions = NO;
+        self.type = @[@"YES", @"NO", @"NO"];
         self.tweets = array;
     }
     return self;
@@ -77,34 +77,24 @@
 }
 
 - (void)loadTimeline {
-    if (self.isMentions) {
+    //NSLog(@"%@", self.type);
+    if ([self.type[1] isEqualToString:@"YES"]) {
         [self.client mentionsWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            // populate models
-            [self.tweets removeAllObjects];
-            NSArray *tweetsInJson = responseObject;
-            NSMutableArray *tweets = [NSMutableArray arrayWithCapacity:tweetsInJson.count];
-            for (NSDictionary *dictionary in tweetsInJson) {
-                SSTweet *tweet = [[SSTweet alloc] initWithDictionary:dictionary];
-                [tweets addObject:tweet];
-            }
-            self.tweets = tweets;
-            [self.tableView reloadData];
+            [self processJson:responseObject];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: no mentions response");
             NSLog(@"%@", error.description);
         }];
-    } else {
+    } else if ([self.type[0] isEqualToString:@"YES"]) {
         [self.client timelineWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            // populate models
-            [self.tweets removeAllObjects];
-            NSArray *tweetsInJson = responseObject;
-            NSMutableArray *tweets = [NSMutableArray arrayWithCapacity:tweetsInJson.count];
-            for (NSDictionary *dictionary in tweetsInJson) {
-                SSTweet *tweet = [[SSTweet alloc] initWithDictionary:dictionary];
-                [tweets addObject:tweet];
-            }
-            self.tweets = tweets;
-            [self.tableView reloadData];
+            [self processJson:responseObject];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: no timeline response");
+            NSLog(@"%@", error.description);
+        }];
+    } else if ([self.type[2] isEqualToString:@"YES"]) {
+        [self.client tweetsWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [self processJson:responseObject];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: no timeline response");
             NSLog(@"%@", error.description);
@@ -117,6 +107,19 @@
 - (void)refresh:(UIRefreshControl *)refreshControl {
     [self loadTimeline];
     [refreshControl endRefreshing];
+}
+
+- (void)processJson:(NSArray *)responseObject {
+    // populate models
+    [self.tweets removeAllObjects];
+    NSArray *tweetsInJson = responseObject;
+    NSMutableArray *tweets = [NSMutableArray arrayWithCapacity:tweetsInJson.count];
+    for (NSDictionary *dictionary in tweetsInJson) {
+        SSTweet *tweet = [[SSTweet alloc] initWithDictionary:dictionary];
+        [tweets addObject:tweet];
+    }
+    self.tweets = tweets;
+    [self.tableView reloadData];
 }
 
 - (void)onAvatarTap:(UITapGestureRecognizer *)tapGestureRecognizer {

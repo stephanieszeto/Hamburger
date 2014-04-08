@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3666003F-B095-4A7D-A259-6683A02BBB80</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Hamburger</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CF669D89-DDA1-44EB-BB4B-056F6E04969A</key>
+		<string>ssh://github.com/stephanieszeto/Hamburger.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Hamburger.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CF669D89-DDA1-44EB-BB4B-056F6E04969A</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/stephanieszeto/Hamburger.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CF669D89-DDA1-44EB-BB4B-056F6E04969A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CF669D89-DDA1-44EB-BB4B-056F6E04969A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Hamburger</string>
+		</dict>
+	</array>
+</dict>
+</plist>

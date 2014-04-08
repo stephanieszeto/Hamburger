@@ -11,7 +11,7 @@
 @interface SSTimelineViewController : UIViewController < UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate >
 
 @property (nonatomic, strong) NSMutableArray *tweets;
-@property (nonatomic) BOOL isMentions;
+@property (nonatomic, strong) NSArray *type;
 
 - (SSTimelineViewController *)initWithArray:(NSMutableArray *)array;
 - (void)setTweets:(NSMutableArray *)tweets;

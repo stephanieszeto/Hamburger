@@ -7,6 +7,7 @@
 //
 
 #import "SSProfileViewController.h"
+#import "SSTimelineViewController.h"
 #import "TwitterClient.h"
 #import "SSUser.h"
 #import "UIImageView+AFNetworking.h"
@@ -24,7 +25,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *numFollowers;
 @property (nonatomic, strong) TwitterClient *client;
 
-@property (weak, nonatomic) IBOutlet UIImageView *screen;
+@property (nonatomic, strong) SSTimelineViewController *tvc;
+@property (weak, nonatomic) IBOutlet UIImageView *tweetsView;
+@property (nonatomic, strong) NSMutableArray *tweets;
 
 @end
 
@@ -35,6 +38,9 @@
     if (self) {
         self.client = [TwitterClient instance];
         self.user = user;
+        
+        self.tvc = [[SSTimelineViewController alloc] init];
+        self.tvc.type = @[@"NO", @"NO", @"YES"];
     }
     return self;
 }
@@ -59,16 +65,16 @@
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
+    UIView *tweetsView = self.tvc.view;
+    tweetsView.frame = self.tweetsView.frame;
+    [self.tweetsView addSubview:tweetsView];
+    
     [self setValues];
 }
 
 - (void)setValues {
     if (self.user) {
         SSUser *user = self.user;
-        NSLog(@"num/tweets: %d", user.numTweets);
-        NSLog(@"num/following: %d", user.numFollowing);
-        NSLog(@"num/followers: %d", user.numFollowers);
-        NSLog(@"background url: %@", user.backgroundURL);
         self.name.text = user.name;
         self.username.text = [NSString stringWithFormat:@"@%@", user.username];
         self.numTweets.text = [NSString stringWithFormat:@"%d", user.numTweets];
@@ -81,11 +87,6 @@
         self.name.shadowOffset = CGSizeMake(-1.0f, 1.0f);
         self.username.shadowColor = [UIColor blackColor];
         self.username.shadowOffset = CGSizeMake(-1.0f, 1.0f);
-        
-//        if (!user.backgroundURL) {
-//            self.name.textColor = [UIColor blackColor];
-//            self.username.textColor = [UIColor blackColor];
-//        }
     }
 }
 
